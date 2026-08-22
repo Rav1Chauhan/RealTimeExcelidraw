@@ -336,4 +336,8 @@ app.get("/rooms/:roomName/shapes", async (req, res) => {
   }
 });
 
-app.listen(3003);
+const PORT = Number(process.env.PORT) || 3003;
+
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`HTTP server running on port ${PORT}`);
+});

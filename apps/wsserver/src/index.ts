@@ -1,9 +1,4 @@
-import dotenv from "dotenv";
-
-dotenv.config({
-  path: "../../packages/db/.env",
-});
-
+import "dotenv/config";
 import { WebSocketServer, WebSocket } from "ws";
 import jwt from "jsonwebtoken";
 
@@ -20,8 +15,10 @@ async function testDatabase() {
 
 testDatabase();
 
+const PORT = Number(process.env.PORT) || 8080;
+
 const wss = new WebSocketServer({
-  port: 8080,
+  port: PORT,
 });
 
 interface User {
