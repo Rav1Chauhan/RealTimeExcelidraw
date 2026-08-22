@@ -161,9 +161,6 @@ importers:
 
   apps/wsserver:
     dependencies:
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../../packages/typescript-config
       '@types/jsonwebtoken':
         specifier: ^9.0.10
         version: 9.0.10
@@ -189,6 +186,12 @@ importers:
       '@repo/db':
         specifier: workspace:*
         version: link:../../packages/db
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
+      '@types/node':
+        specifier: ^22.15.3
+        version: 22.15.3
 
   packages/backend-common:
     devDependencies:
