@@ -50,7 +50,7 @@ function checkUser(token: string): string | null {
 }
 
 wss.on("listening", () => {
-  console.log("✅ WebSocket server running on ws://localhost:8080");
+  console.log(`✅ WebSocket server running on port ${PORT}`);
 });
 
 wss.on("error", (error) => {
