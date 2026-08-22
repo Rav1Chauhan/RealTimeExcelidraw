@@ -1,0 +1,61 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  messages Message[]
+  rooms    Room[]
+  shapes   Shape[]
+}
+
+model Room {
+  id        String   @id @default(cuid())
+  name      String
+  adminId   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  messages Message[]
+  shapes   Shape[]
+
+  admin User @relation(fields: [adminId], references: [id])
+}
+
+model Message {
+  id        String   @id @default(cuid())
+  content   String
+  userId    String
+  roomId    String
+  createdAt DateTime @default(now())
+
+  room Room @relation(fields: [roomId], references: [id])
+  user User @relation(fields: [userId], references: [id])
+}
+
+model Shape {
+  id        String   @id @default(cuid())
+  roomId    String
+  userId    String
+  type      String
+  data      Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  room Room @relation(fields: [roomId], references: [id])
+  user User @relation(fields: [userId], references: [id])
+
+  @@index([roomId])
+  @@index([userId])
+}
