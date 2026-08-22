@@ -18,7 +18,11 @@ import { prismaClient } from "@repo/db/client";
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL,
+  }),
+);
 
 app.post("/signup", async (req, res) => {
   const parsedData = CreateUserSchema.safeParse(req.body);
@@ -104,6 +108,9 @@ app.post("/signin", async (req, res) => {
         userId: user.id,
       },
       JWT_SECRET,
+      {
+        expiresIn: "7d",
+      },
     );
 
     return res.json({
