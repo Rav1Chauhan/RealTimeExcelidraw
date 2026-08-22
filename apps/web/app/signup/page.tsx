@@ -4,7 +4,7 @@ import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 
-import { BACKEND_URL } from "@/lib/api";
+import { BACKEND_URL } from "@/app/config";
 
 export default function SignupPage() {
   const router = useRouter();

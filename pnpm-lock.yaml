@@ -190,7 +190,11 @@ importers:
         specifier: workspace:*
         version: link:../../packages/db
 
-  packages/backend-common: {}
+  packages/backend-common:
+    devDependencies:
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
 
   packages/common:
     dependencies:
