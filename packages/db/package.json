@@ -11,8 +11,9 @@
     }
   },
   "scripts": {
-    "build": "tsc -b"
-  },
+  "build": "prisma generate && tsc -b",
+  "postinstall": "prisma generate"
+},
   "dependencies": {
     "@prisma/adapter-pg": "^7.9.1",
     "@prisma/client": "^7.9.1",
