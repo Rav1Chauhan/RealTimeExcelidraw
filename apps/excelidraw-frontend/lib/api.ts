@@ -1,9 +1,9 @@
 import axios from "axios";
 
-export const BACKEND_URL = "http://localhost:3003";
+import { HTTP_BACKEND } from "@/config";
 
 export const api = axios.create({
-  baseURL: BACKEND_URL,
+  baseURL: HTTP_BACKEND,
 });
 
 api.interceptors.request.use((config) => {

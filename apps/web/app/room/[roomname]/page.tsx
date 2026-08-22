@@ -1,4 +1,5 @@
 import { ChatRooms } from "@/component/ChatRoom";
+import { BACKEND_URL } from "@/app/config";
 
 type RoomPageProps = {
   params: Promise<{
@@ -12,7 +13,7 @@ export default async function RoomPage({
   const { roomname } = await params;
 
   const response = await fetch(
-    `http://localhost:3003/room/${encodeURIComponent(roomname)}`,
+    `${BACKEND_URL}/room/${encodeURIComponent(roomname)}`,
     {
       cache: "no-store",
     }
