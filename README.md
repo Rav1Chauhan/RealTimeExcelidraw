@@ -86,6 +86,7 @@ A real-time collaborative whiteboard inspired by Excalidraw. Multiple users can 
 
 ```
 ###📁 Project Structure
+```text
 RealTimeExcelidraw/
 ├── apps/
 │   ├── excelidraw-frontend/   # Main Next.js application
@@ -100,7 +101,7 @@ RealTimeExcelidraw/
     ├── backend-common/         # Shared backend utilities
     └── typescript-config/      # Shared TypeScript configuration
 
-
+```
 ##1. Clone the repository
 git clone https://github.com/Rav1Chauhan/RealTimeExcelidraw.git
 
